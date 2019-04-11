@@ -1,5 +1,6 @@
-import ShowPlanParser from '@/parser/showplan-parser';
-import * as ShowPlan from '@/parser/showplan';
+import { ShowPlanParser } from '@/parser/showplan-parser';
+import { StmtSimple } from '@/parser/showplan';
+
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -16,7 +17,7 @@ describe.each(files)('%s', (file) => {
         .map(i => i.Statements)
         .reduce((prev, cur) => prev.concat(cur))
         .filter(i => i.StatementType === 'SELECT')
-        .map(i => i as ShowPlan.StmtSimple)
+        .map(i => i as StmtSimple)
         .filter(i => i.QueryPlan !== undefined);
 
     test('valid file', () => {
@@ -33,7 +34,7 @@ describe.each(files)('%s', (file) => {
 
         describe(shortStatement, () => {
             test('we have a queryplan', () => {
-                expect(statement.QueryPlan).toBeDefined;
+                expect(statement.QueryPlan).toBeDefined();
             });
 
             test('any parallel operations have DegreeOfParallelism number of RunTimeCountersPerThread', () => {

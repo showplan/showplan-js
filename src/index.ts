@@ -1,5 +1,2 @@
-import ShowPlanParser from '@/parser/showplan-parser';
-import * as ShowPlan from '@/parser/showplan';
-
-export { ShowPlan, ShowPlanParser };
-
+export * from './parser/showplan';
+export * from './parser/showplan-parser';

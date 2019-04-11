@@ -1,18 +1,31 @@
 {
   "name": "showplan-js",
   "version": "1.0.0",
-  "description": "Parser for SQL Server Graphical Showplan",
+  "description": "JavaScript Parser for SQL Server SHOWPLAN XML files",
+  "author": "Phil Scott",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/showplan/showplan-js"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/showplan/showplan-js/issues"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/src/index.d.ts",
   "files": [
-    "dist"
+    "dist/*.js",
+    "dist/src"
   ],
   "scripts": {
     "test": "jest",
+    "test:coverage": "jest --collectCoverage",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "build": "tsc --outDir dist"
+    "build": "rollup -c",
+    "watch": "rollup -cw"
   },
-  "author": "Phil Scott",
-  "license": "ISC",
   "dependencies": {
     "guid-typescript": "^1.0.9",
     "xmldom": "^0.1.27"
@@ -23,12 +36,15 @@
     "@types/xmldom": "^0.1.29",
     "@typescript-eslint/eslint-plugin": "^1.6.0",
     "@typescript-eslint/parser": "^1.6.0",
+    "dts-bundle-generator": "^2.1.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-import-resolver-typescript": "^1.1.1",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jest": "^22.4.1",
     "jest": "^24.7.1",
+    "rollup": "^1.10.0",
+    "rollup-plugin-typescript2": "^0.20.1",
     "ts-jest": "^24.0.2",
     "typescript": "^3.4.3"
   }

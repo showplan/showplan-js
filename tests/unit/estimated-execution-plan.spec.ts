@@ -1,4 +1,5 @@
-import ShowPlanParser from '@/parser/showplan-parser';
+import { ShowPlanParser } from '@/parser/showplan-parser';
+
 import * as fs from 'fs';
 
 describe('estimated-execution-plan.sqlplan', () => {

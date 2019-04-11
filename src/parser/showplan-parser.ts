@@ -6,7 +6,7 @@ import StatementParser from './statement-parser';
 class ShowPlanParser {
     private static StatementParser = new StatementParser();
 
-    public static ForOnlyElementsInNodes<T>(
+    private static ForOnlyElementsInNodes<T>(
         nodes: HTMLCollectionOf<Element>,
         action: (node: Element) => T | undefined,
     ): T[] {
@@ -31,7 +31,7 @@ class ShowPlanParser {
         return results;
     }
 
-    public static BuildRoot(
+    private static BuildRoot(
         doc: Document,
         batches: ShowPlan.ShowPlanXMLTypeBatchSequenceTypeBatch[],
     ): ShowPlan.ShowPlanXML {
@@ -40,7 +40,7 @@ class ShowPlanParser {
         return new ShowPlan.ShowPlanXML(build, false, version, batches);
     }
 
-    public static GetBatchFromElement(batchElement: Element): ShowPlan.BaseStmtInfo[] {
+    private static GetBatchFromElement(batchElement: Element): ShowPlan.BaseStmtInfo[] {
         const statementElements = batchElement.getElementsByTagName('Statements');
 
         const results = ShowPlanParser.ForOnlyElementsInNodes(statementElements, (node) => {
@@ -138,4 +138,4 @@ class ShowPlanParser {
     }
 }
 
-export default ShowPlanParser;
+export { ShowPlanParser };

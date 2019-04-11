@@ -1,4 +1,5 @@
-import ShowPlanParser from '@/parser/showplan-parser';
+import { ShowPlanParser } from '@/parser/showplan-parser';
+
 import * as ShowPlan from '@/parser/showplan';
 import ColumnReferenceParser from '@/parser/column-reference-parser';
 import * as fs from 'fs';

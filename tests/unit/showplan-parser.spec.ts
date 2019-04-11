@@ -1,4 +1,5 @@
-import ShowPlanParser from '@/parser/showplan-parser';
+import { ShowPlanParser } from '@/parser/showplan-parser';
+
 
 describe('showplan-parser tests', () => {
     test('fails gracefully with invalid xml', () => {

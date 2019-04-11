@@ -1,7 +1,6 @@
 import * as ShowPlan from './showplan';
 import Convert from './convert';
 import QueryHelper from './query-helper';
-import { Grouper, Group } from './grouping';
 
 class ColumnReferenceParser {
     public Parse(element: Element): ShowPlan.ColumnReference {
@@ -31,22 +30,6 @@ class ColumnReferenceParser {
 
         const columnReferenceElements = QueryHelper.GetImmediateChildNodesByTagName(containerElement[0], 'ColumnReference');
         return columnReferenceElements.map(i => this.Parse(i));
-    }
-
-    public static Group(columns: ShowPlan.ColumnReference[]): Group<ShowPlan.ColumnReference>[] {
-    // return groupBy(columns, (a) => a.Database + '.' + a.Schema + '.' + a.Table);
-        return Grouper.groupBy<ShowPlan.ColumnReference>(columns, (a: ShowPlan.ColumnReference) => {
-            if (a.Database !== undefined && a.Schema !== undefined && a.Table !== undefined) {
-                let key = `${a.Database}.${a.Schema}.${a.Table}`;
-                if (a.Alias !== undefined) {
-                    key += ` as ${a.Alias}`;
-                }
-
-                return key;
-            }
-
-            return '';
-        });
     }
 }
 

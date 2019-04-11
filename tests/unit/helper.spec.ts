@@ -1,5 +1,5 @@
-import ShowPlanParser from '@/parser/showplan-parser';
 import * as ShowPlan from '@/parser/showplan';
+import { ShowPlanParser } from '@/parser/showplan-parser';
 import * as fs from 'fs';
 
 describe('help functions', () => {
@@ -10,6 +10,7 @@ describe('help functions', () => {
 
         const showplan = plan.Batches[0].Statements[0] as ShowPlan.StmtSimple;
         const queryplan = showplan.QueryPlan!;
+        expect(queryplan).toBeInstanceOf(ShowPlan.QueryPlan);
 
         const flatten = queryplan.getFlattenRelOps();
         expect(flatten).toHaveLength(7);
