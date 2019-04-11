@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "es2015",
+        "strict": true,
+        "jsx": "preserve",
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "baseUrl": ".",
+        "types": ["node", "jest"],
+        "paths": {
+            "@/*": ["src/*"]
+        },
+        "typeRoots": ["node_modules/@types", "./src/types"]
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.d.ts",
+        "tests/**/*.ts",
+    ],
+    "exclude": ["node_modules"]
+}
