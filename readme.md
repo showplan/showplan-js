@@ -3,6 +3,8 @@
 ShowPlan.Js is a JavaScript library for parsing SQL Server SHOWPLAN XML files into a strongly
 typed object.
 
+[![npm version](https://badge.fury.io/js/showplan-js.svg)](https://badge.fury.io/js/showplan-js)
+
 ## Installation
 
 Use NPM or YARN to install foobar.
