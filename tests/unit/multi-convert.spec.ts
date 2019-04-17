@@ -1,7 +1,6 @@
 import { ShowPlanParser } from '@/parser/showplan-parser';
 
 import * as ShowPlan from '@/parser/showplan';
-import ColumnReferenceParser from '@/parser/column-reference-parser';
 import * as fs from 'fs';
 
 describe('multi-convert.sqlplan', () => {
@@ -52,13 +51,5 @@ describe('multi-convert.sqlplan', () => {
         const statement = plan.Batches[0].Statements[0] as ShowPlan.StmtSimple;
         const finalOperation = statement.QueryPlan!.RelOp.Action.RelOp[0].Action.RelOp;
         expect(finalOperation[0].Action).toBeInstanceOf(ShowPlan.IndexScan);
-    });
-
-    test('can group column references', () => {
-        const statement = plan.Batches[0].Statements[0] as ShowPlan.StmtSimple;
-        const columns = statement.QueryPlan!.RelOp.OutputList;
-        const grouping = ColumnReferenceParser.Group(columns);
-        expect(grouping).toHaveLength(1);
-        expect(grouping[0].key).toBe('');
     });
 });

@@ -1,7 +1,6 @@
 import { ShowPlanParser } from '@/parser/showplan-parser';
 
 import * as ShowPlan from '@/parser/showplan';
-import ColumnReferenceParser from '@/parser/column-reference-parser';
 import * as fs from 'fs';
 
 describe('nested-loops.sqlplan', () => {
@@ -30,17 +29,5 @@ describe('nested-loops.sqlplan', () => {
 
         expect(action.SeekPredicates!.SeekPredicateNew).toHaveLength(1);
         expect(action.SeekPredicates!.SeekPredicateNew![0].SeekKeys[0].Prefix!.RangeColumns[0].Column).toBeDefined();
-    });
-
-    test('can group columnreferences', () => {
-        const statement = plan.Batches[0].Statements[0] as ShowPlan.StmtSimple;
-        const columns = statement.QueryPlan!.RelOp.OutputList;
-        const grouping = ColumnReferenceParser.Group(columns);
-        expect(grouping).toBeDefined();
-        expect(grouping).toHaveLength(2);
-        expect(grouping[0].key).toBe('[StackOverflowMovies].[dbo].[Posts]');
-        expect(grouping[0].members).toHaveLength(20);
-        expect(grouping[1].key).toBe('[StackOverflowMovies].[dbo].[Users]');
-        expect(grouping[1].members).toHaveLength(14);
     });
 });
