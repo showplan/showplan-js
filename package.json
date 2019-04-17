@@ -1,6 +1,6 @@
 {
   "name": "showplan-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JavaScript Parser for SQL Server SHOWPLAN XML files",
   "author": "Phil Scott",
   "repository": {
@@ -21,8 +21,8 @@
   "scripts": {
     "test": "jest",
     "test:coverage": "jest --collectCoverage",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint --ext .ts,.js . ",
+    "lint:fix": "eslint --fix --ext .ts,.js .",
     "build": "rollup -c",
     "watch": "rollup -cw"
   },
