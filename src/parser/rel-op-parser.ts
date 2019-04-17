@@ -82,7 +82,7 @@ class RelOpParser {
 */
 
         let action: ShowPlan.RelOpAction | undefined;
-        let tagName: string = '';
+        let tagName = '';
         let actionElement: Element | undefined;
 
         // eslint-disable-next-line

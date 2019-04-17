@@ -5,7 +5,8 @@ module.exports = {
         jest: true
     },
     extends: [
-        "airbnb-base"
+        "airbnb-base",
+        "plugin:@typescript-eslint/recommended"
     ],
     globals: {
         Atomics: 'readonly',
@@ -38,6 +39,9 @@ module.exports = {
         'linebreak-style': 0,
         indent: ['error', 4, {
             SwitchCase: 1,
+        }],
+        '@typescript-eslint/explicit-function-return-type': ['warn', {
+            allowExpressions: true
         }],
     },
 };
