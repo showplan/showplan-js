@@ -82,6 +82,7 @@ class RelOpParser {
 */
 
         let action: ShowPlan.RelOpAction | undefined;
+        let tagName: string = '';
         let actionElement: Element | undefined;
 
         // eslint-disable-next-line
@@ -93,6 +94,7 @@ class RelOpParser {
             if (childNodes.length === 1) {
                 [actionElement] = childNodes;
                 action = tagAndParser.Action(actionElement);
+                tagName = tagAndParser.TagName;
                 break;
             }
         }
@@ -125,6 +127,7 @@ class RelOpParser {
         const columnReferenceList = RelOpParser.ColumnReferenceParser.GetAllFromElement(relOpElement, 'OutputList');
 
         const thisOp = new ShowPlan.RelOp(
+            tagName,
             action,
             avgRowSize,
             EstimateCPU,

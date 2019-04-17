@@ -37,6 +37,12 @@ describe.each(files)('%s', (file) => {
                 expect(statement.QueryPlan).toBeDefined();
             });
 
+            test('all relops have a name set', () => {
+                allOperations.forEach((operation) => {
+                    expect(operation.Name).not.toBe('');
+                });
+            });
+
             test('any parallel operations have DegreeOfParallelism number of RunTimeCountersPerThread', () => {
                 const threads = queryPlan.DegreeOfParallelism;
                 const parallelOperations = allOperations.filter(i => i.Parallel && i.RunTimeInformation !== undefined && i.RunTimeInformation!.RunTimeCountersPerThread.length !== 1);

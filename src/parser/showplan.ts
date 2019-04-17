@@ -56,6 +56,8 @@ export class RelOpAction {
 export class RelOp {
     public ParentRelOp?: RelOp;
 
+    public Name: string;
+
     public AdaptiveThresholdRows?: number;
 
     public AvgRowSize: number;
@@ -165,6 +167,7 @@ export class RelOp {
     private expandedComputedColumns?: ExpandedComputedColumn[];
 
     public constructor(
+        Name: string,
         Action: RelOpAction,
         AvgRowSize: number,
         EstimateCPU: number,
@@ -179,6 +182,7 @@ export class RelOp {
         PhysicalOperation: PhysicalOp,
         OutputList: ColumnReference[],
     ) {
+        this.Name = Name;
         this.Action = Action;
         this.AvgRowSize = AvgRowSize;
         this.EstimateCPU = EstimateCPU;
