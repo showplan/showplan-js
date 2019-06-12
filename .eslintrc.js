@@ -17,7 +17,7 @@ module.exports = {
         '@typescript-eslint/parser': ['.ts', '.tsx'],
         ecmaVersion: 2018,
         sourceType: 'module',
-        // project: './tsconfig.json', // this has a big time perf hit right now
+        project: './tsconfig.json', // if you encounter perf issues disable this
         tsconfigRootDir: './',
     },
     plugins: [
