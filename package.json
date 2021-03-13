@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "guid-typescript": "^1.0.9",
-    "xmldom": "^0.1.27"
+    "xmldom": "^0.5.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",
